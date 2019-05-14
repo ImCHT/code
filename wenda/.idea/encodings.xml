@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/dao/QuestionDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/model/Question.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/footer.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/header.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/home.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/index.html" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

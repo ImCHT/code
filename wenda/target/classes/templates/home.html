@@ -1,35 +1,57 @@
 <html>
 <body>
 <pre>
-    #set($Title = "CHT")
-    Title:$!{Title}
-    #parse("header.html")
-    #include("header.html")
-
-    hello
+    #*
+    你看不到我~~~~
+    *#
     $!{value1}
-    $!{value2}  ##如果不存在强制为空
+    $!{value2} ## 如果不存在，强制为空
     ${value3}
-    colors:$!{colors}
+
+    colors: $!{colors}
 
     #foreach($color in $colors)
-        this is color:$color , $!{foreach.index},$!{foreach.count}
+        This is Color $!{foreach.index}: $color, $!{foreach.count}
     #end
 
-    $map
-    #foreach($mapKey in $map.entrySet())
-        $mapKey.key:$mapKey.value
+    #foreach($key in $map.keySet())
+        Number: $key, Value: $map.get($key)
     #end
 
-    $user.getName()
-    $user.name
-
-    #macro(render_color,$color,$index)
-        This is Color $index:$color
+    #foreach($kv in $map.entrySet())
+        Number: $kv.key, Value: $kv.value
     #end
+
+    User:  $!{user.name}
+    $!{user.description}
+    $!{user.getDescription()}
+
+    #set($title = "nowcoder_title")
+    Title: $!{title}
+
+
+    Parse: #parse("header.html")
+    Include: #include("header.html")
+
+    #macro (render_color, $index, $color)
+        Color Render Macro $index, $color
+    #end
+
     #foreach($color in $colors)
-        #render_color($color,$foreach.index)
+        #render_color($foreach.index, $color)
     #end
+
+    #set($hello = "hello")
+    #set($helloworld1 = "$!{hello} world")
+    $!hello
+    $helloworld1
+    #set($helloworld2 = '$!{hello} world')
+    $helloworld2
+
+
+
+
+
 </pre>
 </body>
 </html>
