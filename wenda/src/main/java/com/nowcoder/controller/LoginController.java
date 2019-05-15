@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
@@ -88,10 +90,11 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET, RequestMethod.POST})
-    public String logout(@CookieValue("ticket") String ticket) {
+    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET})
+    public String logout(@CookieValue("ticket") String ticket, HttpServletRequest httpServletRequest) {
         userService.logout(ticket);
         return "redirect:/";
     }
+
 
 }
