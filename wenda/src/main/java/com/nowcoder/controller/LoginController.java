@@ -11,10 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
+/**
+ * Created by nowcoder on 2016/7/2.
+ */
 @Controller
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -89,11 +91,10 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET})
-    public String logout(@CookieValue("ticket") String ticket, HttpServletRequest httpServletRequest) {
+    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET, RequestMethod.POST})
+    public String logout(@CookieValue("ticket") String ticket) {
         userService.logout(ticket);
         return "redirect:/";
     }
-
 
 }

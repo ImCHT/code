@@ -1,7 +1,10 @@
 package com.nowcoder;
 
+import com.nowcoder.dao.QuestionDAO;
 import com.nowcoder.dao.UserDAO;
+import com.nowcoder.model.Question;
 import com.nowcoder.model.User;
+import com.nowcoder.service.SensitiveService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +23,12 @@ public class InitDatabaseTests {
     @Autowired
     UserDAO userDAO;
 
+    @Autowired
+    QuestionDAO questionDAO;
+
+    @Autowired
+    SensitiveService sensitiveUtil;
+
     @Test
     public void contextLoads() {
         Random random = new Random();
@@ -34,10 +43,26 @@ public class InitDatabaseTests {
             user.setPassword("newpassword");
             userDAO.updatePassword(user);
 
+            Question question = new Question();
+            question.setCommentCount(i);
+            Date date = new Date();
+            date.setTime(date.getTime() + 1000 * 3600 * 5 * i);
+            question.setCreatedDate(date);
+            question.setUserId(i + 1);
+            question.setTitle(String.format("TITLE{%d}", i));
+            question.setContent(String.format("Balaababalalalal Content %d", i));
+            questionDAO.addQuestion(question);
         }
 
         Assert.assertEquals("newpassword", userDAO.selectById(1).getPassword());
         userDAO.deleteById(1);
         Assert.assertNull(userDAO.selectById(1));
+    }
+
+    @Test
+    public void testSensitive() {
+        String content = "question content <img src=\"https:\\/\\/baidu.com/ff.png\">色情赌博";
+        String result = sensitiveUtil.filter(content);
+        System.out.println(result);
     }
 }

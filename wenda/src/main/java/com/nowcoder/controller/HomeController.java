@@ -1,6 +1,5 @@
 package com.nowcoder.controller;
 
-import com.nowcoder.model.HostHolder;
 import com.nowcoder.model.Question;
 import com.nowcoder.model.ViewObject;
 import com.nowcoder.service.QuestionService;
@@ -18,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by nowcoder on 2016/7/15.
+ */
 @Controller
 public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -27,9 +29,6 @@ public class HomeController {
 
     @Autowired
     UserService userService;
-
-    @Autowired
-    HostHolder hostHolder;
 
     private List<ViewObject> getQuestions(int userId, int offset, int limit) {
         List<Question> questionList = questionService.getLatestQuestions(userId, offset, limit);

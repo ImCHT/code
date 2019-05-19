@@ -1,11 +1,14 @@
 package com.nowcoder.model;
 
+/**
+ * Created by nowcoder on 2016/6/26.
+ */
 public class User {
     private int id;
     private String name;
     private String password;
     private String salt;
-    private String head_url;
+    private String headUrl;
 
     public User() {
 
@@ -14,7 +17,7 @@ public class User {
         this.name = name;
         this.password = "";
         this.salt = "";
-        this.head_url = "";
+        this.headUrl = "";
     }
 
     public String getName() {
@@ -42,11 +45,11 @@ public class User {
     }
 
     public String getHeadUrl() {
-        return head_url;
+        return headUrl;
     }
 
     public void setHeadUrl(String headUrl) {
-        this.head_url = headUrl;
+        this.headUrl = headUrl;
     }
 
     public int getId() {
