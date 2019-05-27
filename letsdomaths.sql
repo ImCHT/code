@@ -1,7 +1,8 @@
-CREATE TABLE `letsdomaths`.`TableName1`( 
+DROP TABLE IF EXISTS USER;
+CREATE TABLE `letsdomaths`.`user`( 
    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , 
-   `name` VARCHAR(10) NOT NULL , 
-   `password` VARCHAR(10) NOT NULL , 
+   `name` VARCHAR(255) NOT NULL , 
+   `password` VARCHAR(255) NOT NULL , 
    `genanswer` INT DEFAULT '0' , 
    `genright` INT DEFAULT '0' , 
    `cdanswer` INT DEFAULT '0' , 
